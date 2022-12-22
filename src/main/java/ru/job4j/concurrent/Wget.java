@@ -8,13 +8,13 @@ public class Wget {
     }
     
     private static void sleepThenPrint() {
-        for (int i = 0; i < 100; i++) {
-            try {
+        try {
+            for (int i = 0; i < 100; i++) {
                 Thread.sleep(1000);
-                System.out.print("\rLoading : " + i  + "%");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.print("\rLoading : " + i + "%");
             }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }
