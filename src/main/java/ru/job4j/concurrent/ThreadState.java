@@ -1,5 +1,9 @@
 package ru.job4j.concurrent;
 
+/**
+ * Состояние нити.
+ * Нить main должна дождаться завершения двух нитей и вывести на консоль сообщение, что работа завершена.
+ */
 public class ThreadState {
     public static void main(String[] args) {
         Thread first = new Thread(() -> System.out.println(Thread.currentThread().getName()));
