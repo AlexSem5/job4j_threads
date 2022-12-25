@@ -1,8 +1,10 @@
 package ru.job4j.concurrent;
+
 /**
  * Interrupt example Oracledocs
  */
-public class SleepMessages {
+
+public class SleepMesNew {
     public static void main(String[] args) throws InterruptedException {
         Thread first = new Thread(() -> {
             String[] importantInfo = {
@@ -12,17 +14,18 @@ public class SleepMessages {
                     "A kid will eat ivy too"
             };
             System.out.println(Thread.currentThread().getName());
-            for (int i = 0; i < importantInfo.length; i++) {
-                /*Pause for 4 seconds*/
-                try {
+            try {
+                for (int i = 0; i < importantInfo.length; i++) {
+                    /*Pause for 4 seconds*/
                     Thread.sleep(4000);
-                } catch (InterruptedException e) {
                     /*We've been interrupted: no more messages*/
-                    return;
+                    /*Print a message*/
+                    System.out.println(importantInfo[i]);
                 }
-                /*Print a message*/
-                System.out.println(importantInfo[i]);
+            } catch (InterruptedException e) {
+                return;
             }
+            System.out.println("in Thread 0");
         });
         first.start();
         first.interrupt();

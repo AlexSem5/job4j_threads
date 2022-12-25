@@ -1,5 +1,8 @@
 package ru.job4j.concurrent;
 
+/**
+ * Indefinite cycle
+ */
 public class ThreadStopExample {
     public static void main(String[] args) throws InterruptedException {
         Thread progress = new Thread(
@@ -12,6 +15,7 @@ public class ThreadStopExample {
                             System.out.println(Thread.currentThread().isInterrupted());
                             System.out.println(Thread.currentThread().getState());
                         }
+                        System.out.println("In Thread 0");
                     }
                 }
         );
