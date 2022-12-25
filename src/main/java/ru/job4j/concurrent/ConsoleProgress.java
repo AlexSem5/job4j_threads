@@ -9,12 +9,12 @@ public class ConsoleProgress implements Runnable {
         while (!Thread.currentThread().isInterrupted()) {
             try {
                 Thread.sleep(500);
-                System.out.print("\r load: " + symbols[i++]);
-                if (i >= symbols.length) {
-                    i = 0;
-                }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
+            }
+            System.out.print("\r load: " + symbols[i++]);
+            if (i >= symbols.length) {
+                i = 0;
             }
         }
     }
