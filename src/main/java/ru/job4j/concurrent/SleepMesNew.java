@@ -17,17 +17,18 @@ public class SleepMesNew {
             try {
                 for (int i = 0; i < importantInfo.length; i++) {
                     /*Pause for 4 seconds*/
-                    Thread.sleep(4000);
-                    /*We've been interrupted: no more messages*/
+                    Thread.sleep(100);
                     /*Print a message*/
                     System.out.println(importantInfo[i]);
                 }
             } catch (InterruptedException e) {
+                /*We've been interrupted: no more messages*/
                 return;
             }
             System.out.println("in Thread 0");
         });
         first.start();
+        Thread.sleep(1000);
         first.interrupt();
         first.join();
         System.out.println("The end");
