@@ -8,7 +8,7 @@ public class ThreadJoin1 {
         
         private Thread next;
         
-        private TestTask testTask = new TestTask();
+        private final TestTask testTask = new TestTask();
         
         @Override
         public void run() {
