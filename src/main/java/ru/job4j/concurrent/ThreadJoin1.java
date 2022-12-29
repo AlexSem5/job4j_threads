@@ -1,17 +1,17 @@
 package ru.job4j.concurrent;
 
+import java.util.Objects;
+
 public class ThreadJoin1 {
-    static void threadMessage(String message) {
-        String threadName = Thread.currentThread().getName();
-        System.out.format("%s: %s%n", threadName, message);
-    }
     
     private static class ThreadJob1 implements Runnable {
+        
         private Thread next;
+        
+        private TestTask testTask = new TestTask();
         
         @Override
         public void run() {
-            threadMessage("Started");
             if (next != null) {
                 try {
                     next.join();
@@ -19,7 +19,15 @@ public class ThreadJoin1 {
                     e.printStackTrace();
                 }
             }
-            threadMessage("Terminated");
+            if (Objects.equals(Thread.currentThread().getName(), "a")) {
+                testTask.first();
+            }
+            if (Objects.equals(Thread.currentThread().getName(), "b")) {
+                testTask.second();
+            }
+            if (Objects.equals(Thread.currentThread().getName(), "c")) {
+                testTask.third();
+            }
         }
         
         public void setNext(Thread thread) {
@@ -34,8 +42,8 @@ public class ThreadJoin1 {
         final Thread a = new Thread(job1, "a");
         final Thread b = new Thread(job2, "b");
         final Thread c = new Thread(job3, "c");
-        job1.setNext(b);
-        job2.setNext(c);
+        job3.setNext(b);
+        job2.setNext(a);
         a.start();
         b.start();
         c.start();
