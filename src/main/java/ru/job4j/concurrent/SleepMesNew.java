@@ -8,7 +8,7 @@ public class SleepMesNew {
     public static void main(String[] args) throws InterruptedException {
         Thread first = new Thread(() -> {
             String[] importantInfo = {
-                    "Mares eat oats",
+                    "Mares eat o",
                     "Does eat oats",
                     "Little lambs eat ivy",
                     "A kid will eat ivy too"
