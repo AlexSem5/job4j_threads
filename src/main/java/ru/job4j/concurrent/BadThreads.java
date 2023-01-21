@@ -13,7 +13,9 @@ public class BadThreads {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            // Key statement 1:
+/*
+             Key statement 1:
+*/
             synchronized (message) {
                 printMessage = "2";
             }
@@ -27,7 +29,9 @@ public class BadThreads {
             printMessage = "1";
         }
         Thread.sleep(2000);
-        // Key statement 2:
+/*
+             Key statement 2:
+*/
         System.out.println(printMessage);
     }
 }
