@@ -29,4 +29,5 @@ Tasks on multithreading are covered in this project:
 - Concurrent Collections
 - Atomic Variables
 - Concurrent Random Numbers
-- Git
+- GIT branching 
+- GitHub essentials
